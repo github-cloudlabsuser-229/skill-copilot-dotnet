@@ -21,7 +21,26 @@ class Calculator {
 
 // Usage
 const calculator = new Calculator();
-console.log(calculator.add(5, 3));      // Outputs: 8
-console.log(calculator.subtract(5, 3)); // Outputs: 2
-console.log(calculator.multiply(5, 3)); // Outputs: 15
-console.log(calculator.divide(6, 3));   // Outputs: 2
+
+// Get operation and numbers from command line arguments
+const operation = process.argv[2];
+const num1 = Number(process.argv[3]);
+const num2 = Number(process.argv[4]);
+
+// Perform the operation
+switch (operation) {
+    case 'add':
+        console.log(calculator.add(num1, num2));
+        break;
+    case 'subtract':
+        console.log(calculator.subtract(num1, num2));
+        break;
+    case 'multiply':
+        console.log(calculator.multiply(num1, num2));
+        break;
+    case 'divide':
+        console.log(calculator.divide(num1, num2));
+        break;
+    default:
+        console.log('Invalid operation. Please choose from "add", "subtract", "multiply", or "divide".');
+}
